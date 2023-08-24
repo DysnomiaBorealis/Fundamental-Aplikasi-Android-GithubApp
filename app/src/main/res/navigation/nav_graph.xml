@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchUserFragment">
+
+    <fragment
+        android:id="@+id/searchUserFragment"
+        android:name="com.example.githubapp.Fragment.SearchUserFragment"
+        tools:layout="@layout/fragment_search_user">
+
+        <action
+            android:id="@+id/action_searchUserFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment">
+            <argument
+                android:name="username"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.example.githubapp.Fragment.UserDetailFragment"
+        tools:layout="@layout/fragment_user_detail">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_UserDetailFragment_to_FavoriteUserFragment"
+            app:destination="@id/FavoriteUserFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/FavoriteUserFragment"
+        android:name="com.example.githubapp.Fragment.FavoriteUserFragment"
+        tools:layout="@layout/fragment_favorite_user" />
+
+</navigation>
+
